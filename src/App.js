@@ -1,7 +1,7 @@
 import "./App.css";
 import { Footer } from "./components/Footer";
 import { Hero } from "./components/Hero";
-import { ImageContainer } from "./components/ImageContainer";
+import ImageContainer from "./components/ImageContainer";
 
 function App() {
   return (

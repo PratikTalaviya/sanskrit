@@ -1,5 +1,5 @@
-import React from "react";
-import { Image } from "./Image";
+import React, { useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 import Image1 from "../assets/1.jpg";
 import Image2 from "../assets/2.jpg";
@@ -13,30 +13,57 @@ import Image9 from "../assets/9.jpg";
 import Image10 from "../assets/10.jpg";
 import Image11 from "../assets/11.jpg";
 import Image12 from "../assets/12.jpg";
+import { Image } from "./Image";
+import { useInView } from "react-intersection-observer"; // Import useInView hook
 
-export const ImageContainer = () => {
+const ImageContainer = () => {
+  const images = useMemo(
+    () => [Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8, Image9, Image10, Image11, Image12],
+    []
+  );
+
+  // Use useInView hook to detect when the component is in view
+  const { ref, inView } = useInView({
+    threshold: 0.2, // Fire the callback when 50% of the component is in view
+    triggerOnce: false, // Fire the callback only once
+  });
+
   return (
-    <div className="h-[50vh]">
-      <div className="h-[60%] grid grid-cols-15">
-        <div className="h-[81%] col-span-15 flex justify-between">
-          <Image className={clsx("w-[18%]")} src={Image1} />
-          <Image className={clsx("w-[12%]")} src={Image2} />
-          <Image className={clsx("w-[33%]")} src={Image3} />
-          <Image className={clsx("w-[14%]")} src={Image4} />
-          <Image className={clsx("w-[23%]")} src={Image5} />
-        </div>
+    <AnimatePresence>
+      <div className="h-[50vh]" ref={ref}>
+        <motion.div
+          className="grid grid-cols-15"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.95 }} // Animate based on inView status
+          transition={{ duration: 1 }}
+        >
+          <div className="h-[30vh] col-span-15 flex justify-between">
+            <Image className={clsx("w-[18%]")} src={images[0]} />
+            <Image className={clsx("w-[12%]")} src={images[1]} />
+            <Image className={clsx("w-[33%]")} src={images[3]} />
+            <Image className={clsx("w-[14%]")} src={images[4]} />
+            <Image className={clsx("w-[23%]")} src={images[5]} />
+          </div>
+        </motion.div>
+        <motion.div
+          className="grid grid-cols-7"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: inView ? 1 : 0 }} // Animate opacity based on inView status
+          transition={{ duration: 1 }}
+        >
+          <div className="h-[20vh] col-span-7 flex justify-between">
+            <Image className={clsx("w-[12%]")} src={images[5]} />
+            <Image className={clsx("w-[12%]")} src={images[6]} />
+            <Image className={clsx("w-[20%]")} src={images[7]} />
+            <Image className={clsx("w-[12%]")} src={images[8]} />
+            <Image className={clsx("w-[12%]")} src={images[9]} />
+            <Image className={clsx("w-[20%]")} src={images[10]} />
+            <Image className={clsx("w-[12%]")} src={images[11]} />
+          </div>
+        </motion.div>
       </div>
-      <div className="h-[40%] grid grid-cols-7">
-        <div className="h-[81%] col-span-7 flex justify-between">
-          <Image className={clsx("w-[12%]")} src={Image6} />
-          <Image className={clsx("w-[12%]")} src={Image7} />
-          <Image className={clsx("w-[20%]")} src={Image8} />
-          <Image className={clsx("w-[12%]")} src={Image9} />
-          <Image className={clsx("w-[12%]")} src={Image10} />
-          <Image className={clsx("w-[20%]")} src={Image11} />
-          <Image className={clsx("w-[12%]")} src={Image12} />
-        </div>
-      </div>
-    </div>
+    </AnimatePresence>
   );
 };
+
+export default ImageContainer;

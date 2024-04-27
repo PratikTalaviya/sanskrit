@@ -1,45 +1,105 @@
 import React from "react";
-
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const variants = {
   open: {
-    x: 0,
     opacity: 1,
+    y: 0,
     transition: {
-      y: { stiffness: 1000, velocity: -100 },
+      duration: 1.5, // Adjust the duration if needed
+      ease: "easeInOut", // Add easing if necessary
     },
   },
   closed: {
-    x: 50,
     opacity: 0,
-    transition: {
-      y: { stiffness: 1000 },
-    },
+    y: -10,
   },
 };
 
 export const Footer = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: false, // Trigger animation once
+    threshold: 0.3, // Percentage of element in viewport to trigger animation
+  });
+
   return (
-    <div className="p-10 h-[50vh] flex items-center flex-col">
+    <div className="h-[50vh] flex items-center justify-center flex-col" ref={ref}>
       <div className="flex text-3xl font-semibold text-[#696969] mb-10 gap-3">
-        <motion.h1 variants={variants} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+        <motion.h1
+          variants={variants}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          initial="closed"
+          animate={inView ? "open" : "closed"}
+        >
           Architecture
         </motion.h1>
-        <span>|</span>
-        <motion.h1 variants={variants} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+        <motion.span variants={variants} initial="closed" animate={inView ? "open" : "closed"}>
+          |
+        </motion.span>
+        <motion.h1
+          variants={variants}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          initial="closed"
+          animate={inView ? "open" : "closed"}
+        >
           Interior
         </motion.h1>{" "}
-        <span>|</span>
-        <motion.h1 variants={variants} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+        <motion.span variants={variants} initial="closed" animate={inView ? "open" : "closed"}>
+          |
+        </motion.span>
+        <motion.h1
+          variants={variants}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          initial="closed"
+          animate={inView ? "open" : "closed"}
+        >
           Planning
         </motion.h1>
       </div>
-      <h2 className="text-2xl font-bold text-[#999999] mb-5">AR. HEET KAKADIYA</h2>
-      <h2 className="text-2xl text-[#999999]">+91 88172 18888 | +91 82003 64863</h2>
-      <h2 className="text-[1.3rem] text-[#999999] mb-3">sanskritarchitects@gmail.com</h2>
-      <h2 className="text-[1.3rem] text-[#999999]">1053, Silver Business Point, VIP Circle, Utran Road</h2>
-      <h2 className="text-[1.3rem] text-[#999999]">Surat-395010</h2>
+      <motion.h2
+        variants={variants}
+        initial="closed"
+        animate={inView ? "open" : "closed"}
+        className="text-2xl font-bold text-[#999999] mb-5"
+      >
+        AR. HEET KAKADIYA
+      </motion.h2>
+      <motion.h2
+        variants={variants}
+        initial="closed"
+        animate={inView ? "open" : "closed"}
+        className="text-2xl text-[#999999]"
+      >
+        +91 88172 18888 | +91 82003 64863
+      </motion.h2>
+      <motion.h2
+        variants={variants}
+        initial="closed"
+        animate={inView ? "open" : "closed"}
+        className="text-[1.3rem] text-[#999999] mb-3"
+      >
+        sanskritarchitects@gmail.com
+      </motion.h2>
+      <motion.h2
+        variants={variants}
+        initial="closed"
+        animate={inView ? "open" : "closed"}
+        className="text-[1.3rem] text-[#999999]"
+      >
+        1053, Silver Business Point, VIP Circle, Utran Road
+      </motion.h2>
+      <motion.h2
+        variants={variants}
+        initial="closed"
+        animate={inView ? "open" : "closed"}
+        className="text-[1.3rem] text-[#999999]"
+      >
+        Surat-395010
+      </motion.h2>
     </div>
   );
 };
