@@ -30,12 +30,18 @@ const ImageContainer = () => {
 
   return (
     <AnimatePresence>
-      <div className="h-[50vh]" ref={ref}>
+      <motion.div
+        className="h-[50vh]"
+        ref={ref}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: inView ? 1 : 0 }}
+        transition={{ type: "tween", duration: 0.5, ease: "easeIn" }}
+      >
         <motion.div
           className="grid grid-cols-15"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.95 }} // Animate based on inView status
-          transition={{ duration: 1 }}
+          initial={{ scale: 0.95, x: 100 }}
+          animate={{ scale: inView ? 1 : 0.95, x: inView ? 0 : 100 }} // Animate based on inView status
+          transition={{ type: "tween", duration: 1, ease: [0.17, 0.67, 0.09, 0.99] }}
         >
           <div className="h-[30vh] col-span-15 flex justify-between">
             <Image className={clsx("w-[18%]")} src={images[0]} />
@@ -47,9 +53,9 @@ const ImageContainer = () => {
         </motion.div>
         <motion.div
           className="grid grid-cols-7"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: inView ? 1 : 0 }} // Animate opacity based on inView status
-          transition={{ duration: 1 }}
+          initial={{ x: -100 }}
+          animate={{ x: inView ? 0 : -100 }} // Animate opacity based on inView status
+          transition={{ type: "tween", duration: 1, ease: [0.17, 0.67, 0.09, 0.99] }}
         >
           <div className="h-[20vh] col-span-7 flex justify-between">
             <Image className={clsx("w-[12%]")} src={images[5]} />
@@ -61,7 +67,7 @@ const ImageContainer = () => {
             <Image className={clsx("w-[12%]")} src={images[11]} />
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </AnimatePresence>
   );
 };
