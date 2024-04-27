@@ -5,7 +5,7 @@ import ImageContainer from "./components/ImageContainer";
 
 function App() {
   return (
-    <div className="bg-[#F4E9E9]">
+    <div className="bg-[#F4E9E9] overflow-x-hidden">
       <Hero />
       <ImageContainer />
       <Footer />
