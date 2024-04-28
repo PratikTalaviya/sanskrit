@@ -46,9 +46,9 @@ const ImageContainer = () => {
           <div className="h-[30vh] col-span-15 flex justify-between">
             <Image className={clsx("w-[18%]")} src={images[0]} />
             <Image className={clsx("w-[12%]")} src={images[1]} />
-            <Image className={clsx("w-[33%]")} src={images[3]} />
-            <Image className={clsx("w-[14%]")} src={images[4]} />
-            <Image className={clsx("w-[23%]")} src={images[5]} />
+            <Image className={clsx("w-[33%]")} src={images[2]} />
+            <Image className={clsx("w-[14%]")} src={images[3]} />
+            <Image className={clsx("w-[23%]")} src={images[4]} />
           </div>
         </motion.div>
         <motion.div

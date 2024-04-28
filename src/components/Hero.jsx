@@ -26,7 +26,7 @@ export const Hero = () => {
           scale: inView ? 1 : 0.8, // Animate only when inView
           opacity: inView ? 1 : 0, // Animate only when inView
         }}
-        transition={{ type: "tween", duration: 1, delay: 1, ease: "easeOut" }}
+        transition={{ type: "tween", duration: 0.5, delay: 0.5, ease: "easeOut" }}
       >
         architects & interiors
       </motion.p>
