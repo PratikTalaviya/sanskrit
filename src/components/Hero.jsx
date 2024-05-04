@@ -19,14 +19,16 @@ export const Hero = () => {
         Sanskrit
       </motion.h1>
       <motion.p
-        className="text-[5vh] font-medium text-[#999999] tracking-[0.15rem]"
-        initial={{ opacity: 0, y: -20, scale: 0.8 }}
+        className="text-[5vh] font-medium text-[#999999]  "
+        initial={{ opacity: 0, y: 0, scale: 1, letterSpacing: "25px" }}
         animate={{
-          y: inView ? 0 : -20, // Animate only when inView
-          scale: inView ? 1 : 0.8, // Animate only when inView
+          // letterSpacing: "2px",
           opacity: inView ? 1 : 0, // Animate only when inView
+          letterSpacing: inView ? "2px" : "25px",
+          // y: inView ? 0 : -20, // Animate only when inView
+          // scale: inView ? 1 : 0.8, // Animate only when inView
         }}
-        transition={{ type: "tween", duration: 0.5, delay: 0.5, ease: "easeOut" }}
+        transition={{ type: "tween", duration: 1, delay: 0.3, ease: "easeOut" }}
       >
         architects & interiors
       </motion.p>

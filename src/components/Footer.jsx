@@ -25,10 +25,10 @@ export const Footer = () => {
 
   return (
     <div className="h-[50vh] flex items-center justify-center flex-col" ref={ref}>
-      <div className="flex text-3xl font-semibold text-[#696969] mb-10 gap-3">
+      <div className="flex text-2xl font-semibold text-[#696969] mb-8 gap-3">
         <motion.h1
           variants={variants}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           initial="closed"
           animate={inView ? "open" : "closed"}
@@ -40,7 +40,7 @@ export const Footer = () => {
         </motion.span>
         <motion.h1
           variants={variants}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           initial="closed"
           animate={inView ? "open" : "closed"}
@@ -52,7 +52,7 @@ export const Footer = () => {
         </motion.span>
         <motion.h1
           variants={variants}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           initial="closed"
           animate={inView ? "open" : "closed"}
@@ -64,7 +64,7 @@ export const Footer = () => {
         variants={variants}
         initial="closed"
         animate={inView ? "open" : "closed"}
-        className="text-2xl font-bold text-[#999999] mb-5"
+        className="text-[1.2rem] font-bold text-[#999999] mb-5"
       >
         AR. HEET KAKADIYA
       </motion.h2>
@@ -72,7 +72,7 @@ export const Footer = () => {
         variants={variants}
         initial="closed"
         animate={inView ? "open" : "closed"}
-        className="text-2xl text-[#999999]"
+        className="text-[1.1rem] text-[#999999]"
       >
         +91 88172 18888 | +91 82003 64863
       </motion.h2>
@@ -80,7 +80,7 @@ export const Footer = () => {
         variants={variants}
         initial="closed"
         animate={inView ? "open" : "closed"}
-        className="text-[1.3rem] text-[#999999] mb-3"
+        className="text-[1.2rem] text-[#999999] mb-3"
       >
         sanskritarchitects@gmail.com
       </motion.h2>
@@ -88,7 +88,7 @@ export const Footer = () => {
         variants={variants}
         initial="closed"
         animate={inView ? "open" : "closed"}
-        className="text-[1.3rem] text-[#999999]"
+        className="text-[1.2rem] text-[#999999]"
       >
         1053, Silver Business Point, VIP Circle, Utran Road
       </motion.h2>
@@ -96,7 +96,7 @@ export const Footer = () => {
         variants={variants}
         initial="closed"
         animate={inView ? "open" : "closed"}
-        className="text-[1.3rem] text-[#999999]"
+        className="text-[1.2rem] text-[#999999]"
       >
         Surat-395010
       </motion.h2>
