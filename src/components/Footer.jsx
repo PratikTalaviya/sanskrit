@@ -1,6 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { FaInstagram } from "react-icons/fa";
+import { TiSocialFacebook } from "react-icons/ti";
+import { BsTwitterX } from "react-icons/bs";
+import { RiLinkedinFill } from "react-icons/ri";
 
 const variants = {
   open: {
@@ -24,7 +28,7 @@ export const Footer = () => {
   });
 
   return (
-    <div className="h-[40vh] flex items-center justify-start flex-col mt-[4vh]" ref={ref}>
+    <div className="h-[45vh] flex items-center justify-start flex-col pt-[3vh]" ref={ref}>
       <div className="flex text-2xl font-semibold text-[#696969] mb-8 gap-3">
         <motion.h1
           variants={variants}
@@ -100,6 +104,32 @@ export const Footer = () => {
       >
         Surat-395010
       </motion.h2>
+      <motion.div variants={variants} initial="closed" animate={inView ? "open" : "closed"} className="flex gap-5 pt-2">
+        <a
+          href="https://www.instagram.com/Instagram/"
+          className="bg-[#999999] rounded-full w-[35px] h-[35px] flex items-center justify-center pb-[0.5px]"
+        >
+          <FaInstagram className="text-[#F4E9E9] text-2xl" />
+        </a>
+        <a
+          href="https://www.facebook.com/"
+          className="bg-[#999999] rounded-full w-[35px] h-[35px] flex items-center justify-center pb-[0.5px]"
+        >
+          <TiSocialFacebook className="text-[#F4E9E9] text-3xl" />
+        </a>
+        <a
+          href="https://linkedin.com/home"
+          className="bg-[#999999] rounded-full w-[35px] h-[35px] flex items-center justify-center pb-[0.5px]"
+        >
+          <RiLinkedinFill className="text-[#F4E9E9] text-2xl" />
+        </a>
+        <a
+          href="https://twitter.com/home"
+          className="bg-[#999999] rounded-full w-[35px] h-[35px] flex items-center justify-center pb-[0.5px]"
+        >
+          <BsTwitterX className="text-[#F4E9E9] text-[18px]" />
+        </a>
+      </motion.div>
     </div>
   );
 };

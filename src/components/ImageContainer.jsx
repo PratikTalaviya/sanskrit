@@ -31,7 +31,7 @@ const ImageContainer = () => {
   return (
     <AnimatePresence>
       <motion.div
-        className="h-[60vh] pt-[10vh]"
+        className="h-[55vh] pt-[5vh]"
         ref={ref}
         initial={{ opacity: 0 }}
         animate={{ opacity: inView ? 1 : 0 }}
