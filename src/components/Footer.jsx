@@ -24,7 +24,7 @@ export const Footer = () => {
   });
 
   return (
-    <div className="h-[50vh] flex items-center justify-center flex-col" ref={ref}>
+    <div className="h-[40vh] flex items-center justify-start flex-col mt-[4vh]" ref={ref}>
       <div className="flex text-2xl font-semibold text-[#696969] mb-8 gap-3">
         <motion.h1
           variants={variants}
